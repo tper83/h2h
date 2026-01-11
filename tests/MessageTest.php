@@ -17,7 +17,7 @@ class MessageTest extends WebTestCase
     public function testList(): void
     {
         $client = static::createClient();
-        $client->request('GET', 'https://127.0.0.1:8000/api/message');
+        $client->request('GET', '/api/message');
         $response = $client->getResponse();
         $content = json_decode($response->getContent());
         $this->assertResponseIsSuccessful();
@@ -29,7 +29,7 @@ class MessageTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST',
-            'https://127.0.0.1:8000/api/message',
+            '/api/message',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
